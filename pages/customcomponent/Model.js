@@ -26,6 +26,7 @@ const PopupContainer = styled.div`
 `;
 
 function Model({onClose, children, width}) {
+  if (typeof document !== 'undefined') {
     return ReactDOM.createPortal(
         <>
           <Overlay onClick={onClose} />
@@ -35,6 +36,7 @@ function Model({onClose, children, width}) {
         </>,
         document.body
       );
+}
     
 }
 
