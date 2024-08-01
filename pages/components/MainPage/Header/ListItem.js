@@ -1,17 +1,54 @@
-import React from "react";
+import Model from "@/pages/customcomponent/Model";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledP = styled.p`
-font-weight: 500;
-    font-size: 16px;
-   
+  font-weight: 500;
+  font-size: 16px;
+`;
+const ListContainer = styled.li`
+  display: block;
+  cursor: pointer;
+  padding-right: 1.5rem;
+  border-right: 1px solid lightgray;
+
+  svg {
+    margin-left: 0.75rem;
+  }
+  &:first-child {
+    & svg {
+      margin-left: 2rem;
+    }
+  }
+  &:last-child {
+    border-right: none;
+  }
 `;
 
 function ListItem() {
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
+const router = useRouter();
+  const handleAccountClick = () => {
+    console.log("Account clicked");
+router.push("/login")
+  };
+
+  const handleClosePopup = () => {
+    setShowLoginPopup(false);
+  };
+
   return (
     <>
+      {/* {showLoginPopup && (
+        <Model width={400} onClose={handleClosePopup}>
+          <h1>Login</h1>
+
+        </Model>
+      )} */}
+
       <ul className="list-none flex justify-start gap-9">
-        <li className="block border-r border-gray-200 pr-5">
+        <ListContainer onClick={handleAccountClick}>
           <svg
             width={26}
             height={26}
@@ -29,14 +66,14 @@ function ListItem() {
             ></path>
           </svg>
           <StyledP className="">My account</StyledP>
-        </li>
-        <li className="block border-r border-gray-200 pr-5">
+        </ListContainer>
+        <ListContainer>
           <svg
             className="ml-3"
             width={26}
             height={26}
+            marginLeft={6}
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -50,14 +87,13 @@ function ListItem() {
             ></path>{" "}
           </svg>
           <StyledP>Wishlist</StyledP>
-        </li>
-        <li className="block">
+        </ListContainer>
+        <ListContainer>
           <svg
             className="ml-3"
             width={26}
             height={26}
             xmlns="http://www.w3.org/2000/svg"
-            class="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -70,7 +106,7 @@ function ListItem() {
             ></path>
           </svg>
           <StyledP>Checkout</StyledP>
-        </li>
+        </ListContainer>
       </ul>
     </>
   );
