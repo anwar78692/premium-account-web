@@ -4,7 +4,7 @@ import Header from "./components/MainPage/Header/TopHeader";
 export default function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <SearchLogoAccount/>
     </>
   );
