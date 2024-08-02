@@ -1,14 +1,74 @@
 import React, { useState } from 'react';
-import { accordionItems } from '@/pages/utils/utils';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import { Button } from "@mui/material";
+import FilterButtons from './FilterButtons';
 import PriceSlider from '@/pages/customcomponent/Slider';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import InventoryIcon from '@mui/icons-material/Inventory';
 import AccordionItem from '@/pages/customcomponent/Accordian';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import OptionSelector from '@/pages/customcomponent/OptionSelector';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
-import FilterButtons from './FilterButtons';
+
+
+ const accordionItems = [
+    {
+      panel: 'panel1',
+      title: 'Private',
+      subtitle: '',
+      content: (
+        <>
+          <Button variant="contained" color="primary" className="m-2">Education</Button>
+          <Button variant="contained" color="secondary" className="m-2">OTT</Button>
+          <Button variant="contained" color="success" className="m-2">Finance</Button>
+          <Button variant="contained" color="warning" className="m-2">Traveling</Button>
+          <Button variant="contained" color="error" className="m-2">Giftcard</Button>
+        </>
+      )
+    },
+    {
+      panel: 'panel2',
+      title: 'Cracked',
+      subtitle: '',
+      content: (
+        <>
+          <Button variant="contained" color="primary" className="m-2">Education</Button>
+          <Button variant="contained" color="secondary" className="m-2">OTT</Button>
+          <Button variant="contained" color="success" className="m-2">Finance</Button>
+          <Button variant="contained" color="warning" className="m-2">Traveling</Button>
+          <Button variant="contained" color="error" className="m-2">Giftcard</Button>
+        </>
+      )
+    },
+    {
+      panel: 'panel3',
+      title: 'Mixed content',
+      subtitle: '',
+      content: (
+        <>
+          <Button variant="contained" color="primary" className="m-2">Education</Button>
+          <Button variant="contained" color="secondary" className="m-2">OTT</Button>
+          <Button variant="contained" color="success" className="m-2">Finance</Button>
+          <Button variant="contained" color="warning" className="m-2">Traveling</Button>
+          <Button variant="contained" color="error" className="m-2">Giftcard</Button>
+        </>
+      )
+    },
+    {
+      panel: 'panel4',
+      title: 'Resellers',
+      subtitle: '',
+      content: (
+        <>
+          <Button variant="contained" color="primary" className="m-2">Education</Button>
+          <Button variant="contained" color="secondary" className="m-2">OTT</Button>
+          <Button variant="contained" color="success" className="m-2">Finance</Button>
+          <Button variant="contained" color="warning" className="m-2">Traveling</Button>
+          <Button variant="contained" color="error" className="m-2">Giftcard</Button>
+        </>
+      )
+    }
+  ];
 
 const FilterTextIcon = () => {
     return (
