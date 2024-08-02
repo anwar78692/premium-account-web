@@ -1,5 +1,5 @@
-import React from 'react'
-import LoginForm from './LoginForm'
+import React from 'react';
+import LoginForm from './LoginForm';
 
 function Login() {
     return (
@@ -7,4 +7,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;

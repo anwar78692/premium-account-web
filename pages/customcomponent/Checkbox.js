@@ -14,8 +14,8 @@ const RememberMeContainer = styled.div`
 
 const CustomCheckbox = styled.div`
   position: relative;
-  width: 20px; /* Size of the checkbox */
-  height: 20px; /* Size of the checkbox */
+  width: 18px; /* Size of the checkbox */
+  height: 18px; /* Size of the checkbox */
   border: 2px solid #ccc; /* Border color */
   border-radius: 4px; /* Rounded corners */
   cursor: pointer;
@@ -25,10 +25,10 @@ const CustomCheckbox = styled.div`
   justify-content: center;
 
   /* When checked, change background color and border color */
-  input[type="checkbox"]:checked + & {
+  ${({ checked }) => checked && `
     background-color: #563eec; /* Checked background color */
     border-color: #563eec; /* Checked border color */
-  }
+  `}
 
   /* Custom checkmark */
   &::after {
@@ -40,12 +40,7 @@ const CustomCheckbox = styled.div`
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
     transform-origin: center;
-    opacity: 0; /* Hide checkmark by default */
-  }
-
-  /* Show checkmark when checked */
-  input[type="checkbox"]:checked + &::after {
-    opacity: 1;
+    opacity: ${({ checked }) => (checked ? 1 : 0)}; /* Show checkmark if checked */
   }
 `;
 
@@ -55,12 +50,13 @@ const Label = styled.label`
   cursor: pointer;
 `;
 
-function RememberMe({label}) {
+function RememberMe({ label, className,isChecked, onChange }) {
+
   return (
-    <RememberMeContainer>
-      <input type="checkbox" id="rememberMe" />
-      <CustomCheckbox />
-      <Label htmlFor="rememberMe">{label}</Label>
+    <RememberMeContainer className={className}>
+       <input type="checkbox" id={label} checked={isChecked} onChange={onChange} />
+      <CustomCheckbox checked={isChecked} onClick={onChange} />
+      <Label htmlFor={label} onClick={onChange}>{label}</Label>
     </RememberMeContainer>
   );
 }

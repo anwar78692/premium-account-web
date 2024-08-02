@@ -9,13 +9,3 @@
 //       throw error;
 //     }
 //   };
-  
-// //   export const createUser = async (userData) => {
-//     try {
-//       const response = await axios.post(`${API_BASE_URL}/users`, userData);
-//       return response.data;
-//     } catch (error) {
-//       console.error('Error creating user:', error);
-//       throw error;
-//     }
-//   };

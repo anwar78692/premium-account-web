@@ -41,7 +41,6 @@ const categories = ['Category 1', 'Category 2', 'Category 3'];
 
 const ListItemComponent = () => {
   const router = useRouter();
-
   const isHomePage = router.pathname === '/';
 
   return (
