@@ -1,10 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { signIn, useSession } from 'next-auth/react';
 import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 import Button from "@/pages/customcomponent/Button";
 import RememberMe from "@/pages/customcomponent/Checkbox";
+import axios from "axios";
 
 const StyledDiv = styled.div`
   margin-top: 2rem;
@@ -91,6 +92,25 @@ const Separator = styled.div`
     color: #888;
   }
 `;
+const createUser = async (userData) => {
+  try {
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/users`, userData);
+    return response.data;
+  } catch (error) {
+    console.error('Error creating user:', error);
+    throw error;
+  }
+};
+
+const getUsers = async () => {
+  try {
+    const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL}/users`);
+    return response.data;
+  } catch (error) {
+    console.error('Error getting users:', error);
+    throw error;
+  }
+}
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -125,14 +145,31 @@ function LoginForm() {
     return isValid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validate()) {
-      // Perform login
-      console.log("Email:", email);
-      console.log("Password:", password);
+      try {
+        const userData = { email, password };
+        const newUser = await createUser(userData);
+        console.log('User created:', newUser);
+      } catch (error) {
+        console.error('Error during user creation:', error);
+      }
     }
   };
+
+  const usergetUsers = async () => {
+    try {
+      const users = await getUsers();
+      console.log('Users:', users);
+    } catch (error) {
+      console.error('Error getting users:', error);
+    }
+  }
+
+  useEffect(() => {
+    usergetUsers();
+  }, []);
 
   return (
     <FormContainer>

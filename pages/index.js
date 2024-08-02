@@ -1,11 +1,9 @@
-import SearchLogoAccount from "./components/MainPage/Header/SearchLogoAccount";
-import Header from "./components/MainPage/Header/TopHeader";
+import MainPage from "./components/MainPage";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <SearchLogoAccount/>
+      <MainPage/>
     </>
   );
 }

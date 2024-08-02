@@ -1,0 +1,62 @@
+/* Dashboard.module.css */
+
+.filterSectionContainer {
+    position: relative;
+    overflow: hidden; /* Ensure the border spans full height */
+}
+
+.filterSectionContent {
+    max-height: 665px;
+    overflow: auto; /* Allow scrolling within this container */
+}
+
+.filterSectionContent::-webkit-scrollbar {
+    width: 4px !important;
+}
+
+.filterSectionContent::-webkit-scrollbar-track {
+    background: #f1f1f1 !important; /* Track color */
+}
+
+.filterSectionContent::-webkit-scrollbar-thumb {
+    background: #dedada !important; /* Handle color */
+    border-radius: 10px !important; /* Rounded handle */
+}
+
+.filterSectionContent::-webkit-scrollbar-thumb:hover {
+    background: #cecccc !important; /* Handle color on hover */
+}
+
+.resizableHandle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px; /* Handle width */
+    height: 100%;
+    cursor: ew-resize;
+    /* background-color: #ccc; */
+    z-index: 10;
+}
+
+.filterSectionContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.filterSectionContent {
+    flex: 1; /* Allow content to expand within the container */
+    overflow: auto; /* Ensure content can scroll if needed */
+}
+
+.resizableHandle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px; /* Handle width */
+    height: 100%;
+    cursor: ew-resize;
+    /* background-color: #ccc;   */
+    z-index: 10;
+}
