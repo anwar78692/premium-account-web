@@ -5,7 +5,6 @@ import FilterButtons from './FilterButtons';
 import PriceSlider from '@/pages/customcomponent/Slider';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import InventoryIcon from '@mui/icons-material/Inventory';
-import AccordionItem from '@/pages/customcomponent/Accordian';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
@@ -13,7 +12,6 @@ import styled from "styled-components";
 import RememberMe from "@/pages/customcomponent/Checkbox";
 // const OptionSelector = dynamic(() => import('@/pages/customcomponent/OptionSelector'), { ssr: false });
 
-import React from 'react';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
