@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import { Button } from "@mui/material";
+import React, { useState } from 'react';
 import FilterButtons from './FilterButtons';
 import PriceSlider from '@/pages/customcomponent/Slider';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
@@ -7,9 +8,8 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import AccordionItem from '@/pages/customcomponent/Accordian';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
-import OptionSelector from '@/pages/customcomponent/OptionSelector';
 import StoreMallDirectoryIcon from '@mui/icons-material/StoreMallDirectory';
-
+const OptionSelector = dynamic(() => import('@/pages/customcomponent/OptionSelector'), { ssr: false });
 
  const accordionItems = [
     {
